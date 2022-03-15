@@ -32,11 +32,12 @@ public class StudentLoginServlet extends HttpServlet{
         student.setPassword(password);
 
         try {
-            if (studentDao.validate(student)) {
+        	student = studentDao.validate(student);
+            if (student!=null) {
                 //HttpSession session = request.getSession();
                 // session.setAttribute("username",username);
-//            	request.setAttribute("studentObj", );
-                response.sendRedirect("loginsuccess.jsp");
+            	request.setAttribute("obj",student);
+            	request.getRequestDispatcher("loginsuccess.jsp").forward(request, response);
             } else {
                 //HttpSession session = request.getSession();
                 //session.setAttribute("user", username);

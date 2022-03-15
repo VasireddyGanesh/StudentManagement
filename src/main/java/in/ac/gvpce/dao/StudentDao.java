@@ -58,10 +58,10 @@ public class StudentDao {
         }
     }
     
-    public boolean validate(Student student) throws ClassNotFoundException {
-        boolean status = false;
+    public Student validate(Student student) throws ClassNotFoundException {
 
         Class.forName("com.mysql.jdbc.Driver");
+        Student s=null;
 
         try (Connection connection = DriverManager
             .getConnection("jdbc:mysql://localhost:3306/college?useSSL=false", "root", "ganesh@123");
@@ -74,13 +74,18 @@ public class StudentDao {
 
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
-            status = rs.next();
-
+            if(rs.next()) {
+            	s=new Student();
+            	s.setFirstName(rs.getString("firstname"));
+            	s.setLastName(rs.getString("lastname"));
+            	s.setUsername(rs.getString("username"));
+            	s.setContact(rs.getString("contact"));
+            	s.setDepartment(rs.getString("department"));
+            }
         } catch (SQLException e) {
             // process sql exception
             printSQLException(e);
         }
-        return status;
-    }
-    
+        return s;
+    }    
 }
