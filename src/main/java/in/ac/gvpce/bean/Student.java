@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Student implements Serializable{
 	
-	private String id;
+	private int id;
 	private String firstName;
     private String lastName;
     private String username;
@@ -12,7 +12,7 @@ public class Student implements Serializable{
     private String department;
     private String contact;
     
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	@Override
@@ -20,7 +20,7 @@ public class Student implements Serializable{
 		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
 				+ ", password=" + password + ", department=" + department + ", contact=" + contact + "]";
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFirstName() {

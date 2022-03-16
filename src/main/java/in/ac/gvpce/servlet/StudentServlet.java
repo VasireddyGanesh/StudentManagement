@@ -47,7 +47,7 @@ public class StudentServlet extends HttpServlet{
             e.printStackTrace();
         }
         request.setAttribute("obj",student);
-        RequestDispatcher rd=request.getRequestDispatcher("loginsuccess.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("accountCreationSuccess.jsp");
         rd.forward(request, response);
     }
 }

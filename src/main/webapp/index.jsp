@@ -27,7 +27,8 @@
 		      	<input class="un " type="text" align="center" placeholder="Username" name="username" value="" />
 		      	<input class="pass" type="password" align="center" placeholder="Password" name="password" value="" />
 	      		<input type="submit" value="Sign in" class="submit" align="center"/>
-	      		<p class="forgot" align="center">New User ? <a href="createAccount.jsp">Create Account</p>
+	      		<p class="forgot" align="center">New User ? <a href="createAccount.jsp">Create Account</a></p><br/>
+	      		<p class="show" align="center" style="color: white;"><a style="color: white;text-decoration:none;" href="<%=request.getContextPath()%>/showStudentsServlet" >Show Registered students</a> </p>
 	      	</form>
     	</div>
 	</body>
